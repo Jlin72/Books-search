@@ -1,12 +1,18 @@
 import React, { useEffect } from 'react';
-import Navbar from './components/Navbar/Navbar';
-import Searchbar from './components/Searchbar/SearcBar';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
+import Home from './pages/Home';
+import { BookProvider } from './utils/GlobalState';
 
 function App() {
   return (
     <>
-    <Navbar />
-    <Searchbar />
+      <Router>
+        <Route>
+          <BookProvider>
+            <Route exact path='/' component={Home} />
+          </BookProvider>
+        </Route>
+      </Router>
     </>
   );
 }
