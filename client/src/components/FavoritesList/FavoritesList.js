@@ -38,6 +38,7 @@ const FavoritesList = () => {
   
   useEffect(()=>{
     getFavoriteBooks()
+    //eslint-disable-next-line
   }, []);
 
   const renderFavorites = () => {
