@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { useBookContext } from '../../utils/GlobalState';
 import API from '../../utils/api';
 import './style.css'
+import { DELETE_SAVED } from '../../utils/actions';
 
 const BookSearchList = () => {
   // eslint-disable-next-line
@@ -21,6 +22,10 @@ const BookSearchList = () => {
   }
 
   const addToFavorites = (book) => {
+    dispatch({
+      type: DELETE_SAVED,
+      id: book.id
+    })
     API.saveToFavorites({
       title: book.volumeInfo.title,
       authors: book.volumeInfo.authors,
@@ -33,6 +38,7 @@ const BookSearchList = () => {
 
   return(
     <section className='row'>
+      {console.log(state)}
       {state.loading ? <h1>Loading...</h1> : <></>}
         {state.books.length ? state.books.map(book => <div className='col s12' key={book.id} id={book.id}>
           <div className='card'>
@@ -49,7 +55,7 @@ const BookSearchList = () => {
               <button class="btn waves-effect waves-light" onClick={()=>{addToFavorites(book)}}>Save to favorites</button>
             </div>
           </div>
-        </div>) : (<div id='instructions'><h1>Start book search</h1><h4>How to use:</h4><p>Enter book name on the search bar, then either click submit or press the enter key</p></div>)
+        </div>) : (<div id='instructions'><h4>No books available</h4></div>)
         }
     </section>
   )

@@ -23,16 +23,22 @@ const Searchbar = () => {
   }
 
   return(
-      <form onSubmit = {handleSubmit} className ='row' id='form'>
-        <input 
-          name='bookSearch'
-          placeholder="Enter the book title...."
-          ref= {inputBookTitle}
-          className='col s10'
-        />
-        <button className="btn waves-effect waves-light col s2" type="submit" name="action">Submit
-        </button>
-      </form>
+    <>
+    <div className='card'>
+      <div className='card-content'>
+        <form onSubmit = {handleSubmit} className ='row' id='form'>
+          <input 
+            name='bookSearch'
+            placeholder="Enter book title"
+            ref= {inputBookTitle}
+            className='col s10'
+          />
+          <button className="btn waves-effect waves-light col s2" type="submit" name="action">Submit
+          </button>
+        </form>
+      </div>
+    </div>
+    </>
   )
 }
 

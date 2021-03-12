@@ -5,7 +5,7 @@ const Navbar = ({showHome, showFavorites}) => {
   return (
     <nav>
       <div className="nav-wrapper">
-        <a href="/#" className="brand-logo" onClick={() => showHome()}>Book search</a>
+        <a href="/#" className="brand-logo" onClick={() => showHome()}>Google Books</a>
         <ul id="nav-mobile" className="right hide-on-med-and-down">
           <li><a href="/#" onClick={()=>showHome()}>Home</a></li>
           <li><a href="/#" onClick={()=>showFavorites()}>Favorites</a></li>

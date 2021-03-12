@@ -16,7 +16,7 @@ const reducer = (state, action) => {
     case DELETE_SAVED: {
       return {
         ...state,
-        savedBooks: state.savedBooks.filter(book=> book.bookId !== action.id),
+        books: state.books.filter(book=> book.id !== action.id),
         loading: false
       };
     }

@@ -19,9 +19,9 @@ const Index = () => {
 
   const renderIndex = () => {
     if(displayHome) {
-      return <Home />
+      return <Home displayHome={displayHome} />
     } else if (displayFavorites) {
-      return <Favorites />
+      return <Favorites displayHome={displayHome} />
     }
   }
 
