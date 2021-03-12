@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { useBookContext } from '../../utils/GlobalState';
 import API from '../../utils/api';
-import './style.css'
+import './style.css';
 import { DELETE_SAVED } from '../../utils/actions';
 
 const BookSearchList = () => {
