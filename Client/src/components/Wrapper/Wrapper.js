@@ -2,7 +2,7 @@ import React from 'react';
 
 const Wrapper = ({children}) => {
   return (
-    <article>
+    <article className='container'>
       {children}
     </article>
   )

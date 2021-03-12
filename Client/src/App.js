@@ -3,10 +3,12 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Favorites from './pages/Favorites';
 import Home from './pages/Home';
 import { BookProvider } from './utils/GlobalState';
+import Navbar from './components/Navbar/Navbar';
 
 function App() {
   return (
     <>
+      <Navbar />
       <Router>
         <Route>
           <BookProvider>

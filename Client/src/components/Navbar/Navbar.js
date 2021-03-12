@@ -10,6 +10,11 @@ const Navbar = () => {
           <li><a href="/favorites">Favorites</a></li>
         </ul>
       </div>
+      <ul className="sidenav" id="mobile">
+        <li><a href="sass.html">Sass</a></li>
+        <li><a href="badges.html">Components</a></li>
+        <li><a href="collapsible.html">JavaScript</a></li>
+      </ul>
     </nav>
   )
 }
