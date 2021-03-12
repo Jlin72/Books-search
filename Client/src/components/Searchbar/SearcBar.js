@@ -14,7 +14,6 @@ const Searchbar = () => {
     e.preventDefault();
     API.getBooks(inputBookTitle.current.value)
     .then(data=>{
-      console.log(data.data.items);
       dispatch({type: LOADING});
       dispatch({
         type: FIND_BOOK,

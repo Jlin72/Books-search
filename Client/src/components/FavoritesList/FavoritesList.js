@@ -9,7 +9,6 @@ const FavoritesList = () => {
   const getFavoriteBooks = () => {
     API.getFavorites()
       .then(data => {
-        console.log(data)
         dispatch({type: LOADING})
         dispatch({type: SAVE_BOOK, savedBooks: data.data});
       })

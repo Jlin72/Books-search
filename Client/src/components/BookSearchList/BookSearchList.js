@@ -4,6 +4,7 @@ import API from '../../utils/api';
 import './style.css'
 
 const BookSearchList = () => {
+  // eslint-disable-next-line
   const [state, dispatch] = useBookContext();
   const imageRef = useRef();
 
@@ -27,8 +28,7 @@ const BookSearchList = () => {
       image: (book.volumeInfo.hasOwnProperty('imageLinks') ? book.volumeInfo.imageLinks.smallThumbnail : ''),
       link: book.volumeInfo.infoLink,
       bookId: book.id
-    })
-    .then(data => console.log(data));
+    });
   }
 
   return(
