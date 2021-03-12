@@ -9,19 +9,22 @@ const reducer = (state, action) => {
     case SAVE_BOOK: {
       return {
         ...state,
-        savedBooks: [action.savedBooks, ...state.savedBooks]
+        savedBooks: [action.savedBooks, ...state.savedBooks],
+        loading: false
       };
     }
     case DELETE_SAVED: {
       return {
         ...state,
-        savedBooks: state.savedBooks.filter(book=> book.id !== action.id)
+        savedBooks: state.savedBooks.filter(book=> book.id !== action.id),
+        loading: false
       };
     }
     case FIND_BOOK: {
       return {
         ...state,
-        books: [...action.books]
+        books: [...action.books],
+        loading: false
       };
     }
     case LOADING: {
