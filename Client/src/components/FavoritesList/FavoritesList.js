@@ -3,12 +3,14 @@ import API from '../../utils/api';
 import { useBookContext } from '../../utils/GlobalState';
 import {LOADING, SAVE_BOOK} from '../../utils/actions';
 
+
 const FavoritesList = () => {
   const [state, dispatch] = useBookContext();
 
   const getFavoriteBooks = () => {
     API.getFavorites()
       .then(data => {
+        console.log(data)
         dispatch({type: LOADING})
         dispatch({type: SAVE_BOOK, savedBooks: data.data});
       })
@@ -36,7 +38,6 @@ const FavoritesList = () => {
   
   useEffect(()=>{
     getFavoriteBooks()
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const renderFavorites = () => {
