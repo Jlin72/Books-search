@@ -12,7 +12,7 @@ app.use(express.json());
 
 // If deployed in Heroku use build for assets
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("Client/build"));
+  app.use(express.static("client/build"));
 }
 
 // Telling express to use the backend routes
