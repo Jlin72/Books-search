@@ -37,7 +37,7 @@ const BookSearchList = () => {
         {state.books.length ? state.books.map(book => <div className='col s12' key={book.id} id={book.id}>
           <div className='card'>
             <div className='card-image'>
-              {book.volumeInfo.imageLinks ? (<><img src={book.volumeInfo.imageLinks.thumbnail} alt={book.volumeInfo.title} /> </>) : (<><img src='https://thumbs.dreamstime.com/b/no-image-available-icon-flat-vector-no-image-available-icon-flat-vector-illustration-132482953.jpg' alt='Not found' ref={imageRef} /></>)}
+              {book.volumeInfo.imageLinks ? (<><img src={book.volumeInfo.imageLinks.thumbnail} alt={book.volumeInfo.title} /> </>) : (<><img src='https://thumbs.dreamstime.com/b/no-image-available-icon-flat-vector-no-image-available-icon-flat-vector-illustration-132482953.jpg' alt='Not found' style={{width: '128px', height: '182px'}} ref={imageRef} /></>)}
             </div>
             <div className='card-content'>
               <h5>{book.volumeInfo.title}</h5>

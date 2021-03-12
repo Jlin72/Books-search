@@ -1,22 +1,13 @@
-import React, { useEffect } from 'react';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
-import Favorites from './pages/Favorites';
-import Home from './pages/Home';
+import React from 'react';
 import { BookProvider } from './utils/GlobalState';
-import Navbar from './components/Navbar/Navbar';
+import Index from './pages/Index';
 
 function App() {
   return (
     <>
-      <Navbar />
-      <Router>
-        <Route>
-          <BookProvider>
-            <Route exact path='/' component={Home} />
-            <Route exact path='/favorites' component={Favorites} />
-          </BookProvider>
-        </Route>
-      </Router>
+      <BookProvider>
+        <Index />
+      </BookProvider>
     </>
   );
 }
