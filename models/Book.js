@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const book = new Schema({
@@ -8,7 +8,6 @@ const book = new Schema({
   },
   authors: {
     type: Array,
-    required: true
   },
   description: {
     type: String,
@@ -16,12 +15,16 @@ const book = new Schema({
   },
   image: {
     type: String,
-    required: true,
   },
   link: {
     type: String,
     required: true
-  }
+  },
+  bookId: {
+    type: String,
+    required: true
+  },
+  date: {type:Date, default: Date.now()}
 });
 
 const Book = mongoose.model('Book', book);

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useBookContext } from '../../utils/GlobalState';
+import API from '../../utils/api';
 
 const BookSearchList = () => {
   const [state, dispatch] = useBookContext();
@@ -7,13 +8,25 @@ const BookSearchList = () => {
   const authors = (book) => {
     if(book.volumeInfo.authors) {
       if(book.volumeInfo.authors > 1) {
-        <p><strong>Authors:</strong> {book.volumeInfo.authors.join(', ')}</p>
+        return <p><strong>Authors:</strong> {book.volumeInfo.authors.join(', ')}</p>
       } else {
-        <p><strong>Author:</strong> {book.volumeInfo.authors.join('')}</p>
+        return <p><strong>Author:</strong> {book.volumeInfo.authors.join('')}</p>
       }
     } else {
-      <p><strong>Author: </strong>No author found</p>
+      return <p><strong>Author: </strong>No author found</p>
     }
+  }
+
+  const addToFavorites = (book) => {
+    API.saveToFavorites({
+      title: book.volumeInfo.title,
+      authors: book.volumeInfo.authors,
+      description: book.volumeInfo.description,
+      image: book.volumeInfo.imageLinks.smallThumbnail,
+      link: book.volumeInfo.infoLink,
+      bookId: book.id
+    })
+    .then(data => console.log(data));
   }
 
   return(
@@ -26,7 +39,7 @@ const BookSearchList = () => {
           {authors(book)}
           {book.volumeInfo.description ? <p><strong>Description: </strong>{book.volumeInfo.description}</p> : <p><strong>Description: </strong>No description available</p>}
           <a href={book.volumeInfo.infoLink} target="_blank" rel='noreferrer noopener'><button class="btn waves-effect waves-light">Buy</button></a>
-          <button class="btn waves-effect waves-light">Save to favorites</button>
+          <button class="btn waves-effect waves-light" onClick={()=>{addToFavorites(book)}}>Save to favorites</button>
         </li>) : <h1>Ready to search for books</h1>}
       </ul>
     </>

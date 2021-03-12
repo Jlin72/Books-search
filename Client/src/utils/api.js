@@ -6,6 +6,15 @@ const APIKEY = 'AIzaSyCRK9JtXfrmZsyeAw2jJy4W2NJq7cYaZU4';
 export default {
   getBooks: (query) => {
     return Axios.get(BASEURL + query +'+intitle:' + query + '&key=' + APIKEY);
+  },
+  saveToFavorites: (book) => {
+    return Axios.post('/api/book/', book);
+  },
+  getFavorites: () => {
+    return Axios.get('/api/book');
+  },
+  removeFromFavorites: (id) => {
+    return Axios.delete(`api/book/${id}`)
   }
 };
 

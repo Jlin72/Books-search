@@ -9,7 +9,7 @@ Router
 
 // if the Route uses /:id redirect to this api
 Router
-  .get('/:id')
+  .route('/:id')
   .delete(controller.delete);
 
 module.exports = Router;
