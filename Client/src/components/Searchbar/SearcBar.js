@@ -7,6 +7,7 @@ import './SearchBar.css';
 const Searchbar = () => {
   const inputBookTitle = useRef();
 
+  //eslint-disable-next-line
   const [state, dispatch] = useBookContext();
 
   const handleSubmit = (e) => {
