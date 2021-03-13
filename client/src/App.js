@@ -1,13 +1,16 @@
 import React from 'react';
 import { BookProvider } from './utils/GlobalState';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Index from './pages/Index';
 
 function App() {
   return (
     <>
+    <Router>
       <BookProvider>
-        <Index />
+        <Route exact path='/' component={Index} />
       </BookProvider>
+    </Router>
     </>
   );
 }
